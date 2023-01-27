@@ -26,12 +26,6 @@ const Home = () => {
   navigate('/resources');
 }
 
-const handleSubmitStu = () => {
-  navigate('/students');
-}
-
-
-
 const handleSubmitTic = () => {
   navigate('/tickets');
 }
@@ -132,9 +126,7 @@ const handleSubmitTandP = () => {
             <div className='rounded m-1 shadow-sm lis'> 
               <button type="button" className="list-group-item list-group-item-action border-0 zoom list-group-item-primary" onClick={handleSubmitTandP}>T&P Coordinators</button>
             </div>
-            <div className='rounded m-1 shadow-sm lis'>
-              <button type="button" className="list-group-item list-group-item-action border-0 zoom list-group-item-primary" onClick={handleSubmitStu}>Students</button> 
-            </div>
+            
             <div className='rounded m-1 shadow-sm lis'>
               <button type="button" className="list-group-item list-group-item-action border-0 zoom list-group-item-primary" onClick={handleSubmitTic}>Tickets</button> 
             </div>
