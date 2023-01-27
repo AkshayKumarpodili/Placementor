@@ -1,0 +1,36 @@
+.q{
+    margin:auto;
+    padding:20px;
+    align-items:center;
+    
+}
+
+
+.vc{
+    background-color: rgb(208, 240, 240);
+}
+
+@media screen and (max-width: 920px) {
+    .qwe{
+        width:75%;
+        margin:auto;
+      }
+    
+}
+
+
+@media screen and (max-width: 920px) {
+    .q .qwe{
+        width:75%;
+        margin:auto;
+      }
+   
+}
+
+
+@media screen and (max-width:500px) {
+    .q .we{
+        width:100%;
+        
+      }
+}

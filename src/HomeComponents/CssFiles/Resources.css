@@ -1,0 +1,19 @@
+.e{
+    text-decoration: none;
+}
+.font{
+    font-family: 'Merriweather', serif;
+
+}
+.zoom1 {
+    transition: transform .2s; /* Animation */
+    margin: 0 auto;
+    border-color: rgb(255, 255, 255);
+    
+  }
+  
+  .zoom1:hover {
+    transform: scale(1.02); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    border-color: blueviolet;
+    background: linear-gradient(to bottom, rgb(247, 211, 169), #3aa8ec);
+  }

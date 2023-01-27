@@ -1,0 +1,41 @@
+.we{
+    font-family: 'Merriweather', serif;
+
+}
+.hd{
+    font-family: 'Lora', serif;
+}
+
+.list-group{
+    margin-top: 20px;
+}
+
+#bone{
+    background-color: rgb(207, 197, 197);
+    margin-bottom: 1rem;
+    font-family: 'ABeeZee', sans-serif;
+}
+
+#btwo {
+    background-color: rgb(244, 228, 197);
+    margin-bottom: 1rem;
+    font-family: 'ABeeZee', sans-serif;
+}
+
+.con2{
+    background-color: rgb(187, 244, 244);
+}
+
+@media screen and (max-width: 500px) {
+    .r{
+        text-align: center;
+        width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 920px) {
+    .r{
+        text-align: center;
+        width: 75%;
+    }
+  } 

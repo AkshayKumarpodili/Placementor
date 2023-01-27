@@ -1,0 +1,9 @@
+.back{
+    background: linear-gradient(to bottom, rgb(244, 248, 250), #77fa7f);
+    
+    background-size: cover;
+}
+
+.rt{
+    font-family: 'Unbounded', cursive;
+}

@@ -1,0 +1,82 @@
+::before, ::after {
+    margin: auto;
+    padding: auto;
+  }
+  
+  
+  
+  .bloc-tabs{
+    display: flex;
+    margin:auto;
+    
+  }
+  .tabs {
+    padding: 15px;
+    text-align: center;
+    width: 50%; 
+    font-family: 'Playfair Display', serif;
+    background: linear-gradient(to bottom, rgb(255, 255, 255), #e1e1e1dc);
+   
+  }
+  
+  
+  .active-tabs  {
+    background: linear-gradient(to bottom, rgb(160, 202, 249), #3815e7);
+    border-bottom: 1px solid transparent;
+    color: rgb(240, 225, 225);
+  }
+  
+  .hd1{
+    text-align: center;
+  }
+
+  .tq{
+    align-items: center;
+  }
+
+  .active-tabs::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% + 2px);
+    height: 5px;
+    background: rgb(88, 147, 241);
+  }
+  
+  .zoom2 {
+    transition: transform .2s; /* Animation */
+    margin: 0 auto;
+    border-color: rgb(255, 255, 255);
+    
+  }
+  
+  .zoom2:hover {
+    transform: scale(1.02); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    border-color: blueviolet;
+    background: linear-gradient(to bottom, rgb(254, 110, 110), #ecb63a);
+  }
+
+
+  .tabs:hover{
+    border-color:#2c05f0;
+  }
+  
+  button {
+    border: none;
+    
+  }
+  
+  
+  .content {
+    background: white;
+    width: 100%;
+    height: 100%;
+    display: none;
+  }
+  
+  .active-content {
+    display: block;
+  }

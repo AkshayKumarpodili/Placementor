@@ -1,0 +1,14 @@
+@media screen and (max-width: 900px) {
+    .wd{
+        width:150px;
+        display: flex;
+    }
+  }
+
+@media screen and (max-width: 380px) {
+    .wd{
+        width:50%;
+        display: flex;
+        
+    }
+  }

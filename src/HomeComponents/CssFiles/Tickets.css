@@ -1,0 +1,15 @@
+.te{
+    margin:auto;
+    width:75%;
+    margin-bottom: 2rem;
+    background-color: whitesmoke;
+}
+.timg{
+    position:fixed;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10%;
+    width: 50px;
+    bottom:0;
+    right:0;
+    
+}
