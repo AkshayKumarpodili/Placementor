@@ -31,7 +31,7 @@ const ForgotPassword = () => {
                 progress: undefined,
                 theme: "colored",
                 })
-            navigate('/login');    
+            navigate('/');    
 
         } catch (err) {
         setError(err.message);
@@ -65,7 +65,7 @@ const ForgotPassword = () => {
         <div className="d-grid gap-2"> <Button variant="primary" type="Submit"> Submit </Button>    </div>
         </Form>
         <hr />
-        <div className="text-center"> <Link to="/login">Log In</Link> </div>
+        <div className="text-center"> <Link to="/">Log In</Link> </div>
        
        </div> 
     </div>
