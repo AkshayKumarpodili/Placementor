@@ -25,7 +25,7 @@ function LinkMessage() {
       {
         const UseridInTandP = data[i].id;
         console.log("id = ",UseridInTandP);
-        //admin adding on news to 'news' collection to every user in 'TandPDb' collection
+        //admin adding on news to 'linknews' collection to every user in 'TandPDb' collection
         await addDoc(collection(db,`TandPDb/${UseridInTandP}/linknews`),UserObj);  
       }
       
@@ -51,17 +51,17 @@ function LinkMessage() {
             {error&&<Alert variant="danger">{error}</Alert>}
             <Form className='mt-3' onSubmit={handleSubmit}>
                     <Form.Group className="mb-3" controlId="formBasicName">
-                        <Form.Control type="name" placeholder="Enter QUESTION" required value={quest1} onChange={(e) => setQuest1(e.target.value)} />
+                        <Form.Control type="name" placeholder="Enter QUESTION"  value={quest1} onChange={(e) => setQuest1(e.target.value)} />
                         
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicRole">
-                        <Form.Control type="text" placeholder="Enter Message" as="textarea" rows={3} required value={msg} onChange={(e) => setMsg(e.target.value)}  />
+                        <Form.Control type="text" placeholder="Enter Message" as="textarea" rows={3}  value={msg} onChange={(e) => setMsg(e.target.value)}  />
                       
                     </Form.Group>  
 
                     <Form.Group className="mb-3" controlId="formBasicLink">
-                        <Form.Control type="text" placeholder="Enter Link"  required value={link} onChange={(e) => setLink(e.target.value)}  />
+                        <Form.Control type="text" placeholder="Enter Link"   value={link} onChange={(e) => setLink(e.target.value)}  />
                         
                     </Form.Group> 
                     <div className="d-grid gap-2 w-75 m-auto"> <Button variant="primary" type="Submit">Add</Button> </div>

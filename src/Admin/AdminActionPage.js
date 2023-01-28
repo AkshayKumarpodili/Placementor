@@ -14,7 +14,7 @@ function AdminActionPage() {
   }
 
   const handleTickets = () => {
-    navigate('/admintickets')
+    navigate('/allqueries');
   }
   return (
     
