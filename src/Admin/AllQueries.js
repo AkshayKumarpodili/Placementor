@@ -46,7 +46,7 @@ const AllQueries = (props) => {
                   <Button
                     variant="secondary"
                     className="edit"
-                    onClick={() => props.getUserIdHandler(doc.id)}
+                    onClick={() => props.getUserIdHandler(doc.id,doc.name)}
                   >
                     ViewQueries...
                   </Button>

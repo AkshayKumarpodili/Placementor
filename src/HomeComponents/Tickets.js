@@ -8,6 +8,7 @@ import image3 from '../images/icon.png';
 import Loader from '../components/NavbarPages/Loader';
 import { collection,query,getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
+import NoTickets from '../components/NoTickets';
 
 
 
@@ -53,25 +54,37 @@ function Tickets() {
       ) : (
 
           <>
-                {
-                  tickets.map((val) =>(
-                      <div key={val.id} className=' shadow rounded p-2 text-center te'>
-                        <div>
-                         <p  className='fw-bold w text-dark'> {val.title} </p>
-                    
-                        </div>
-                         <p className="role">{val.desc}</p>
-                        <div className='d-flex justify-content-between'>
-                          <div className='d-flex'>
-                          <p className='text-dark'>PostBy: </p>
-                          <p className='text-muted ms-1'>{val.name}</p></div>
-                          
-                        </div>
-                      </div>
-                  ))
-                  
-              } 
-             
+             {tickets.length === 0 ? (
+
+                    <NoTickets/>
+
+             ) : (
+
+                <>
+                
+                    {
+                      tickets.map((val) =>(
+                          <div key={val.id} className=' shadow rounded p-2 text-center te'>
+                            <div>
+                            <p  className='fw-bold w text-dark'> {val.title} </p>
+                        
+                            </div>
+                            <p className="role">{val.desc}</p>
+                            <div className='d-flex justify-content-between'>
+                              <div className='d-flex'>
+                              <p className='text-dark'>PostBy: </p>
+                              <p className='text-muted ms-1'>{val.name}</p></div>
+                              
+                            </div>
+                          </div>
+                      ))
+                      
+                    } 
+                
+                </>
+
+             )}
+                
           </>
 
       )}
@@ -81,6 +94,7 @@ function Tickets() {
        <div>
           <TicketModalSample/>
       </div>
+
     </div>
   )
 }

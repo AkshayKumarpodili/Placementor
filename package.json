@@ -17,6 +17,8 @@
     "react-bootstrap": "^2.7.0",
     "react-dom": "^18.2.0",
     "react-google-button": "^0.7.2",
+    "react-icons": "^4.7.1",
+    "react-icons-kit": "^2.0.0",
     "react-phone-number-input": "^3.2.16",
     "react-router-dom": "^6.7.0",
     "react-scripts": "5.0.1",

@@ -4,13 +4,12 @@ import { Form} from 'react-bootstrap';
 import { useState } from 'react';
 import GoogleButton from 'react-google-button';
 import { useUserAuth } from '../context/UserAuthContext';
-import {toast} from 'react-toastify';
-import { auth, db } from '../firebase';
-import { doc,getDoc,addDoc, collection } from 'firebase/firestore';
+import { db } from '../firebase';
+import { doc,getDoc } from 'firebase/firestore';
 import './Login.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRightToBracket } from '@fortawesome/free-solid-svg-icons';
-import NavbarData from './NavbarData';
+
 
 
 const Login = () => {

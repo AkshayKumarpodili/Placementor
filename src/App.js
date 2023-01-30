@@ -34,13 +34,15 @@ import ViewQueries from './Admin/ViewQueries';
 import { useNavigate } from 'react-router-dom';
 
 
+
 function App() {
 
   const [userId,setUserId] = useState("");
   const navigate = useNavigate();
 
-  const getUserIdHandler = (id) => {
+  const getUserIdHandler = (id,name) => {
   console.log("ChildId = ",id);
+  console.log("name = ",name);
   setUserId(id);
   navigate('/viewqueries');
 }
@@ -78,6 +80,7 @@ function App() {
             <Route path="/resolved" element={<ResolvedQueries />} />
             <Route path="/allqueries" element={<AllQueries getUserIdHandler={getUserIdHandler} />} />
             <Route path="/viewqueries" element={<ViewQueries userId={userId}/>} />
+           
           </Routes>
           <ToastContainer />
         </UserAuthContextProvider>  

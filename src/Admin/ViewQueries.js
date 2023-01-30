@@ -6,8 +6,9 @@ import {db} from '../firebase';
 import {Button} from 'react-bootstrap'
 import './Admin.css';
 import Loader from '../components/NavbarPages/Loader';
+import NoQueries from './NoQueries';
 
-const ViewQueries = ({userId}) => {
+const ViewQueries = ({userId,username}) => {
 
 
   const [tickets, setTickets] = useState([]);
@@ -60,32 +61,46 @@ const ViewQueries = ({userId}) => {
             <div> <Loader/> </div>
             
             ) : (
-
+                  
                     <>
+                                      
+                              {tickets.length === 0 ? (
 
-                    {
-                        tickets.map((val) =>(
-                            <div key={val.id} className=' shadow rounded p-2 text-center te'>
+                                 <NoQueries/>
 
-                                <div><p  className='fw-bold w text-dark'> {val.title} </p></div>
+                            ) : (
 
-                                <p className="role">{val.desc}</p>
+                              <>
+                      
+                              {
+                                tickets.map((val) =>(
+                                    <div key={val.id} className=' shadow rounded p-2 text-center te'>
 
-                                <div className='d-flex justify-content-between'>
-                                <div className='d-flex'>
-                                    <p className='text-dark'>PostBy: </p>
-                                    <p className='text-muted ms-1'>{val.name}</p>
-                                </div>
+                                        <div><p  className='fw-bold w text-dark'> {val.title} </p></div>
 
-                                <div>                         
-                                    <Button variant="danger" className="delete" onClick={(e) => resolveHandler(val.id)}>Resolve</Button>
-                                </div>
+                                        <p className="role">{val.desc}</p>
 
-                                </div>
-                            </div>
-                        ))
+                                        <div className='d-flex justify-content-between'>
+                                        <div className='d-flex'>
+                                            <p className='text-dark'>PostBy: </p>
+                                            <p className='text-muted ms-1'>{val.name}</p>
+                                        </div>
+
+                                        <div>                         
+                                            <Button variant="danger" className="delete" onClick={(e) => resolveHandler(val.id)}>Resolve</Button>
+                                        </div>
+
+                                        </div>
+                                    </div>
+                                ))
                         
-                    } 
+                              } 
+                              
+                              
+                              </>
+
+
+                            )}
 
                     </>
 
