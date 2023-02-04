@@ -2,7 +2,10 @@ import React from 'react'
 
 const ak = () => {
   return (
-    <div>ak</div>
+    <div>
+      <p>ak</p>
+      <h1>akshay</h1>
+      </div>
   )
 }
 

@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowsRotate } from '@fortawesome/free-solid-svg-icons';
 import {collection,query,getDocs, deleteDoc, doc, getDoc,addDoc} from 'firebase/firestore';
@@ -8,14 +8,16 @@ import './Admin.css';
 import Loader from '../components/NavbarPages/Loader';
 import NoQueries from './NoQueries';
 
-const ViewQueries = ({userId,username}) => {
+const ViewQueries = () => {
 
 
   const [tickets, setTickets] = useState([]);
   const [isloading, setIsLoading] = useState(false);
-
+  const userId = localStorage.getItem("qureyId");
+       
   
   const deleteHandler = async (id) => {
+    
     await deleteDoc(doc(db, `TandPDb/${userId}/tickets/`,id)); 
     getTickets(userId);
   };
@@ -32,8 +34,14 @@ const ViewQueries = ({userId,username}) => {
      
   };
 
-    const getTickets = async (id) => {
+
+  useEffect(() => {
+    getTickets();
+  }, []);
+
+    const getTickets = async () => {
        
+        const id = localStorage.getItem("qureyId");
         setIsLoading(true);
         console.log(id);
         const q = query(collection(db, `TandPDb/${id}/tickets`));
@@ -47,13 +55,12 @@ const ViewQueries = ({userId,username}) => {
   return (
 
     <div>
-        <div className='text-center'>
-        <h4 className="text-dark font bg-success rounded p-2 mt-2 m-auto w-75">Want to raise a query? </h4>
-        <p className='font'>Click below</p>
-        <div className='d-flex justify-content-between w-75 m-auto mb-3'>
-          <Button variant="dark edit" onClick={() => getTickets(userId)}><FontAwesomeIcon icon={faArrowsRotate} /> Refresh Page</Button>
+
+        <div className='text-center'>   
+        <div className='d-flex justify-content-between w-75 m-auto mb-3 mt-3'>
+          <Button variant="dark edit" onClick={getTickets}><FontAwesomeIcon icon={faArrowsRotate} /> Refresh Page</Button>
         </div>
-      </div>
+       </div>
 
 
         {isloading ? (

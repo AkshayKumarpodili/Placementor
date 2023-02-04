@@ -46,7 +46,6 @@ const Signup = () => {
               const Obj={name,number,email,Dt,rollno,branch};
               await setDoc(doc(db, "TandPAdmin", userId), Obj);
               await setDoc(doc(db, "TandPDb", userId), Obj);
-              localStorage.setItem("loginUsername",userId);
               navigate('/');
   
         }

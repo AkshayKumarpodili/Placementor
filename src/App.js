@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React from 'react';
 import Signup from './components/Signup';
 import Home from './components/Home';
 import { ToastContainer} from 'react-toastify';
@@ -8,7 +8,6 @@ import { Routes,Route } from 'react-router-dom';
 import {Row, Col } from 'react-bootstrap';
 import "./App.css";
 import {UserAuthContextProvider} from "./context/UserAuthContext";
-import PhoneSignUp from './components/PhoneSignUp';
 import ForgotPassword from './components/ForgotPassword';
 import DefaultPage from './components/DefaultPage';
 import Courses from './components/NavbarPages/Courses';
@@ -24,32 +23,28 @@ import Students from './Admin/Students';
 import NewsFeed from './HomeComponents/NewsFeed';
 import Tickets from './HomeComponents/Tickets';
 import AdminActionPage from './Admin/AdminActionPage';
-import AdminPlacementModal from './Admin/AdminPlacementModal';
-import AdminNewsFeedModal from './Admin/AdminNewsFeedModal';
 import NavbarData from './components/NavbarData';
 import AboutUs from './components/NavbarPages/AboutUs';
 import ContactUs from './components/NavbarPages/ContactUs';
 import AllQueries from './Admin/AllQueries';
 import ViewQueries from './Admin/ViewQueries';
-import { useNavigate } from 'react-router-dom';
+import Messages from './Admin/Messages';
+import AllBasicDetails from './Admin/AllBasicDetails';
+import ViewDetails from './Admin/ViewDetails';
+import ViewOffers from './Admin/ViewOffers';
+import ViewInternships from './Admin/ViewInternships';
+import ViewTrainings from './Admin/ViewTrainings';
+
 
 
 
 function App() {
 
-  const [userId,setUserId] = useState("");
-  const navigate = useNavigate();
-
-  const getUserIdHandler = (id,name) => {
-  console.log("ChildId = ",id);
-  console.log("name = ",name);
-  setUserId(id);
-  navigate('/viewqueries');
-}
 
   return (
   <div>
     <NavbarData/>
+    
     <div className='container-fluid'>
       
     <Row>
@@ -60,27 +55,29 @@ function App() {
             <Route path="/companies" element={<Companies />} />
             <Route path="/oncampus" element={<OnCampus />} />
             <Route path="/students" element={<Students />} />
-            <Route path="/newsfeed" element={<NewsFeed />} />
+            <Route path="/newsfeed" element={<NewsFeed/>} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/TandP" element={<TandPCordinators />} />
             <Route path="/tickets" element={<Tickets />} />
             <Route path="/aboutus" element={<AboutUs/>} />
             <Route path='/contactus' element={<ContactUs/>}/>
             <Route path="/adminactionpage" element={<AdminActionPage />} />
-            <Route path="/adminplacementmodal" element={<AdminPlacementModal />} />
-            <Route path="/adminnewsmodal" element={<AdminNewsFeedModal />} />
             <Route path="/forgotpassword" element={<ForgotPassword />} />
             <Route path="/" element={<DefaultPage />} />
-            <Route path="/signup" element={<Signup/>} />
-            <Route path="/phonesignup" element={<PhoneSignUp />} />
+            <Route path="/signup" element={<Signup />} />
             <Route path="/placements" element={<Placements />} />
             <Route path="/internships" element={<Internships />} />
             <Route path="/courses" element={<Courses />} />
             <Route path="/trainings" element={<Trainings />} />
             <Route path="/resolved" element={<ResolvedQueries />} />
-            <Route path="/allqueries" element={<AllQueries getUserIdHandler={getUserIdHandler} />} />
-            <Route path="/viewqueries" element={<ViewQueries userId={userId}/>} />
-           
+            <Route path="/allqueries" element={<AllQueries />} />
+            <Route path="/viewqueries" element={<ViewQueries />} />
+            <Route path="/messages" element={<Messages/>} />
+            <Route path="/basic-details" element={<AllBasicDetails />} />
+            <Route path="/viewdetails" element={<ViewDetails />} />
+            <Route path="/viewoffers" element={<ViewOffers />} />
+            <Route path="/viewinternships" element={<ViewInternships />} />
+            <Route path="/viewtrainings" element={<ViewTrainings />} />
           </Routes>
           <ToastContainer />
         </UserAuthContextProvider>  

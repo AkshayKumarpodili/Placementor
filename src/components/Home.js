@@ -8,9 +8,13 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 
 
+
 const Home = () => {
 
-  let {user,logOut} = useUserAuth();
+
+ 
+
+  let {logOut} = useUserAuth();
   const navigate = useNavigate();
   
   
@@ -73,8 +77,8 @@ const handleSubmitTandP = () => {
   }
 
   const name=localStorage.getItem("name");
-  const email=localStorage.getItem("email");
   const rl=localStorage.getItem("rollno");
+  const email = localStorage.getItem("email");
   
 
 
@@ -87,6 +91,8 @@ const handleSubmitTandP = () => {
                     <p>{name}</p>
                     <p>{email}</p>
                     <p>{rl}</p>
+
+                    
                   
                   </div>
         </div>
@@ -128,7 +134,7 @@ const handleSubmitTandP = () => {
             </div>
             
             <div className='rounded m-1 shadow-sm lis'>
-              <button type="button" className="list-group-item list-group-item-action border-0 zoom list-group-item-primary" onClick={handleSubmitTic}>Tickets</button> 
+              <button type="button" className="list-group-item list-group-item-action border-0 zoom list-group-item-primary" onClick={handleSubmitTic}>Queries</button> 
             </div>
             <div className='rounded m-1 shadow-sm lis'>
               <button type="button" className="list-group-item list-group-item-action border-0 zoom list-group-item-primary" onClick={() => navigate('/resolved')}>Resolved Queries</button> 

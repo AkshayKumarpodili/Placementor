@@ -5,7 +5,6 @@ import { db } from '../firebase';
 
 
 
-
 function LinkMessage() {
 
     const [quest1, setQuest1] = useState("");
@@ -27,7 +26,11 @@ function LinkMessage() {
         console.log("id = ",UseridInTandP);
         //admin adding on news to 'linknews' collection to every user in 'TandPDb' collection
         await addDoc(collection(db,`TandPDb/${UseridInTandP}/linknews`),UserObj);  
+        await addDoc(collection(db,`TandPAdmin/${UseridInTandP}/linknews`),UserObj);
+        //await addDoc(collection(db,"msg"),UserObj);
       }
+
+      await addDoc(collection(db,"msg"),UserObj);
       
     };
 

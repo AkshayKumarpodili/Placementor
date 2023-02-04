@@ -26,13 +26,13 @@ function OnCampus() {
   const getUsers = async () => {
 
     setIsLoading(true);
-    const loginUsername = localStorage.getItem("loginUsername");
+   
     const snapshot = await UserDataService.getAllUsers();
     const data = snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
 
     data.map(async(doc) => {
 
-    const q = query(collection(db, `TandPDb/${loginUsername}/OnCampusCompanies`));
+    const q = query(collection(db, "OnCampusCompanies"));
     const userDetails = await getDocs(q);
     console.log(userDetails);
     setOnCampus(userDetails.docs.map((doc) => ({ ...doc.data(), id: doc.id })));

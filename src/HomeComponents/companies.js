@@ -29,14 +29,14 @@ function Companies() {
   const getUsers = async () => {
 
         setIsLoading(true);
-        const loginUsername = localStorage.getItem("loginUsername");
+        
 
         const snapshot = await UserDataService.getAllUsers();
         const data = snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
 
         data.map(async(doc) => {
 
-        const q = query(collection(db, `TandPDb/${loginUsername}/OffCampusCompanies`));
+        const q = query(collection(db, "OffCampusCompanies"));
         const userDetails = await getDocs(q);
         console.log(userDetails);
         setCompanies(userDetails.docs.map((doc) => ({ ...doc.data(), id: doc.id })));

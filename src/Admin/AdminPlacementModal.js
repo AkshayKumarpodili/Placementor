@@ -1,7 +1,7 @@
 import React from 'react'
 import {Form,Button,Alert} from 'react-bootstrap';
-import {useState,useEffect} from 'react';
-import { collection, doc, getDocs, setDoc, addDoc } from "firebase/firestore";
+import {useState } from 'react';
+import { collection,  getDocs,  addDoc } from "firebase/firestore";
 import { db } from '../firebase';
 
 function AdminPlacementModal() {
@@ -20,15 +20,8 @@ function AdminPlacementModal() {
       const snapshot = await getDocs(collection(db, 'TandPAdmin'));
       const data = snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
       console.log("data = ",data);
-
-      for(var i=0;i<data.length;i++)
-      {
-        const UseridInTandP = data[i].id;
-        console.log("id = ",UseridInTandP);
-        //admin adding offcampus opportunities to 'OffCampusCompanies' collection to every user in 'TandPDb' collection
-        await addDoc(collection(db,`TandPDb/${UseridInTandP}/OffCampusCompanies`),UserObj);  
-      }
-      
+      //admin adding offcampus opportunities to 'OffCampusCompanies' collection to every user in 'TandPDb' collection
+      await addDoc(collection(db,"OffCampusCompanies"),UserObj);        
     };
 
     const handleSubmit = async(e) => {
@@ -76,9 +69,7 @@ function AdminPlacementModal() {
 
            </Form>                  
           </div>
-        <div className="modal-footer">
-            <button className="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-        </div>
+        
       </div>
     </div>
 </div>

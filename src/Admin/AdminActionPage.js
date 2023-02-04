@@ -44,6 +44,16 @@ function AdminActionPage() {
             <li className="list-group-item rounded" id='bone'>Want to View Students In Database?  
                 <button className='btn bg-success text-white pt-0 pb-0 ps-1 pe-1 float-end'  type='submit' onClick={() => navigate('/students')}>Click...</button>
             </li>
+
+            <li className="list-group-item rounded" id='bone'>Want to View your messages?  
+                <button className='btn bg-success text-white pt-0 pb-0 ps-1 pe-1 float-end'  type='submit' onClick={() => navigate('/messages')}>Click...</button>
+            </li>
+
+            <li className="list-group-item rounded" id='bone'>Want to View all students basic details?  
+                <button className='btn bg-success text-white pt-0 pb-0 ps-1 pe-1 float-end'  type='submit' onClick={() => navigate('/basic-details')}>Click...</button>
+            </li>
+
+          
                          
         </div>
       </div>

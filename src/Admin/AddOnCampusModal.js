@@ -1,6 +1,6 @@
 import React from 'react'
 import {Form,Button,Alert} from 'react-bootstrap';
-import {useState, useEffect} from 'react';
+import {useState } from 'react';
 import { collection, addDoc, getDocs } from "firebase/firestore";
 import { db } from '../firebase';
 
@@ -9,7 +9,7 @@ function AddOnCampusModal() {
     const [error, setError] = useState("");
     const [role, setRole] = useState("");
     const [title, setTitle] = useState("");
-    const [skills,setSkills] = useState([]);
+    const [skills,setSkills] = useState("");
     const [lpa, setPackage] = useState("");
     const [cgpa,setCgpa] = useState("");
     
@@ -22,14 +22,9 @@ function AddOnCampusModal() {
         const snapshot = await getDocs(collection(db, 'TandPAdmin'));
         const data = snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
         console.log("data = ",data);
-  
-        for(var i=0;i<data.length;i++)
-        {
-          const UseridInTandP = data[i].id;
-          console.log("id = ",UseridInTandP);
-          //admin adding oncampus opportunities to 'OnCampusCompanies' collection to every user in 'TandPDb' collection
-          await addDoc(collection(db,`TandPDb/${UseridInTandP}/OnCampusCompanies`),UserObj);  
-        }
+        //admin adding oncampus opportunities to 'OnCampusCompanies' collection to every user in 'TandPDb' collection
+        await addDoc(collection(db, "OnCampusCompanies"),UserObj);  
+        
         
       };
 
@@ -93,9 +88,7 @@ function AddOnCampusModal() {
 
            </Form>                  
           </div>
-        <div className="modal-footer">
-            <button className="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-        </div>
+    
       </div>
     </div>
 </div>

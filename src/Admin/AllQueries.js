@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import {Table,Button} from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import UserDataService from "../AllOpeartions";
 
 
-const AllQueries = (props) => {
+const AllQueries = () => {
 
     const [students, setStudents] = useState([]);
+    const navigate = useNavigate();
     
     useEffect(() => {
       getUsers();
@@ -17,7 +19,12 @@ const AllQueries = (props) => {
         setStudents(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
       };
 
- 
+      
+      const getUserIdHandler = (id,name) => {
+        localStorage.setItem("qureyId",id);
+        localStorage.setItem("queryName",name);
+        navigate('/viewqueries');
+      }
 
   return (
     <div className="table-responsive mt-5 w-75 m-auto">
@@ -46,9 +53,9 @@ const AllQueries = (props) => {
                   <Button
                     variant="secondary"
                     className="edit"
-                    onClick={() => props.getUserIdHandler(doc.id,doc.name)}
+                    onClick={() => getUserIdHandler(doc.id,doc.name)}
                   >
-                    ViewQueries...
+                    View Queries...
                   </Button>
                 </td>         
           </tr>

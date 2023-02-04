@@ -2,7 +2,6 @@ import {Link, useNavigate} from 'react-router-dom';
 import { Button, Alert } from 'react-bootstrap';
 import { Form} from 'react-bootstrap';
 import { useState } from 'react';
-import GoogleButton from 'react-google-button';
 import { useUserAuth } from '../context/UserAuthContext';
 import { db } from '../firebase';
 import { doc,getDoc } from 'firebase/firestore';
@@ -20,11 +19,13 @@ const Login = () => {
   const [error, setError] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-
+  
+ 
+  
 
   //this logIn in below line is accessible via useUserAuth() in UseAuthContext.js file
   const {logIn} = useUserAuth();
-  const {googleSignIn} = useUserAuth();
+  
   
 
   const handleSubmit = async(e) => {
@@ -48,6 +49,7 @@ const Login = () => {
 
             const docRef = doc(db, "TandPDb", userId);
             const docSnap = await getDoc(docRef);
+           
 
             if (docSnap.exists()) {
               
@@ -58,12 +60,13 @@ const Login = () => {
               localStorage.setItem("name",username);
               localStorage.setItem("email",useremail);
               localStorage.setItem("loginUsername",userId);
+              
               navigate('/home');
             } else {
               console.log("No such Document!");
             }
           
-            //navigate('/home');
+           
             
         }
          
@@ -76,28 +79,6 @@ const Login = () => {
     
 };
 
-  const handleNumberSubmit = async(e) => {
-    e.preventDefault();
-    try {
-      navigate('/phonesignup');
-    } catch (error) {
-      alert("Wrong");
-    }
-  }
-
-
-
-
-  const handleGoogleSignIn = async(e) => {
-    e.preventDefault();
-    try {
-      await googleSignIn();
-       navigate("/home");       
-  } catch (err) {
-  setError(err.message);
-  }
-
-};
 
 
   return (
@@ -117,15 +98,9 @@ const Login = () => {
             <Form.Control type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
           </Form.Group>
 
-          <div className="d-grid gap-2  w-50 m-auto"> <Button variant="primary" type="Submit" >Login In <FontAwesomeIcon className='ms-2' icon={faRightToBracket} />  </Button>   </div>
+          <div className="d-grid gap-2  w-50 m-auto"> <Button variant="primary" type="Submit">Login <FontAwesomeIcon className='ms-2' icon={faRightToBracket} />  </Button>   </div>
          
         </Form>
-
-        <hr />
-        <div> <GoogleButton className=" qwe rounded  m-auto" type="dark" onClick={handleGoogleSignIn}/> </div>  
-
-        
-        <Button className="d-grid gap-2  mt-3 w-50 m-auto" onClick={handleNumberSubmit}> Phone SignIn </Button>
       
       </div>
 
