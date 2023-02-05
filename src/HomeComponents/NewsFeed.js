@@ -150,7 +150,7 @@ export default function Newsfeed() {
                   <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content">
                         <div className="modal-header">
-                        <h2>SeenCount</h2>
+                        <h2>Seen By</h2>
                           <button className="btn-close btn-danger" data-bs-dismiss="modal"></button>
                         </div>
 

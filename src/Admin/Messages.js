@@ -128,23 +128,34 @@ const Messages = () => {
                   <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content">
                         <div className="modal-header">
-                        <h2>SeenCount</h2> 
+                        <h2>Seen By</h2> 
                           <button className="btn-close btn-danger" data-bs-dismiss="modal"></button>
                         </div>
 
                         <div className='modal-body'>
 
-                            {/* {cnt.length} */}
-                        
-                        {
-                                  cnt.map((val) =>(
-                                      <div key={val.id}>
-                                          <p className="role text-center">{val.rno}</p>
-                                          <br/>
-                                      </div>
-                                  ))
-                 
-                        } 
+                        {cnt.length === 0 ? (
+
+                                    <p className="mt-[0px] font-epilogue font-bold text-[20px] text-black text-center"> No one seen this message yet...</p>
+
+                              ) : (
+
+                                    <>
+                                      {
+                                          cnt.map((val) =>(
+                                            
+                                              <div key={val.id}>
+                                                  <p className="role text-center">{val.rno}</p>
+                                                  <br/>
+                                              </div>
+                                          ))
+                                      } 
+
+                                    </>
+
+
+
+                              )}
 
 
                         </div>
