@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useUserAuth } from '../context/UserAuthContext';
 import { db } from '../firebase';
 import { doc,getDoc } from 'firebase/firestore';
+import GoogleButton from 'react-google-button';
 import './Login.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRightToBracket } from '@fortawesome/free-solid-svg-icons';
@@ -19,15 +20,11 @@ const Login = () => {
   const [error, setError] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  
- 
-  
 
   //this logIn in below line is accessible via useUserAuth() in UseAuthContext.js file
   const {logIn} = useUserAuth();
+  const {googleSignIn} = useUserAuth();
   
-  
-
   const handleSubmit = async(e) => {
     e.preventDefault();
     setError("");
@@ -65,8 +62,6 @@ const Login = () => {
             } else {
               console.log("No such Document!");
             }
-          
-           
             
         }
          
@@ -75,9 +70,19 @@ const Login = () => {
       console.log("err = ",err.message);
     }
 
-    } 
+    }
     
 };
+
+
+const handleNumberSubmit = async(e) => {
+  e.preventDefault();
+  try {
+    navigate('/phonesignup');
+  } catch (error) {
+    alert("Wrong");
+  }
+}
 
 
 
@@ -101,6 +106,10 @@ const Login = () => {
           <div className="d-grid gap-2  w-50 m-auto"> <Button variant="primary" type="Submit">Login <FontAwesomeIcon className='ms-2' icon={faRightToBracket} />  </Button>   </div>
          
         </Form>
+
+        <hr />
+        
+        <Button className="d-grid gap-2  mt-3 w-50 m-auto" onClick={handleNumberSubmit}> Phone SignIn </Button>
       
       </div>
 

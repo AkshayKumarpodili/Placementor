@@ -88,7 +88,7 @@ const handleToggle = async(e) => {
                                   }).map((val) =>(
                                     <div class="col-sm-6 col-md-4 mt-2">
                                       <div key={val.id} className='card shadow h-100 zoom21'>
-                                      <div class="card-body">
+                                      <div className="card-body">
                                         <h3 className='ofont1 text-center'>{val.title}</h3>
                                         <p className='ofont1'>CGPA : {val.cgpa}</p>
                                         <p className='text-bolder'>Role : {val.role}</p> 

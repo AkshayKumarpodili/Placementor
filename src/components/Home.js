@@ -91,9 +91,6 @@ const handleSubmitTandP = () => {
                     <p>{name}</p>
                     <p>{email}</p>
                     <p>{rl}</p>
-
-                    
-                  
                   </div>
         </div>
         

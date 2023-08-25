@@ -34,7 +34,7 @@ import ViewDetails from './Admin/ViewDetails';
 import ViewOffers from './Admin/ViewOffers';
 import ViewInternships from './Admin/ViewInternships';
 import ViewTrainings from './Admin/ViewTrainings';
-
+import PhoneSignUp from './components/NavbarPages/PhoneSignUp';
 
 
 
@@ -78,6 +78,7 @@ function App() {
             <Route path="/viewoffers" element={<ViewOffers />} />
             <Route path="/viewinternships" element={<ViewInternships />} />
             <Route path="/viewtrainings" element={<ViewTrainings />} />
+            <Route path="/phonesignup" element={<PhoneSignUp />} />
           </Routes>
           <ToastContainer />
         </UserAuthContextProvider>  

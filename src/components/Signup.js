@@ -55,6 +55,8 @@ const Signup = () => {
           setError(err.message);
         }
 
+        
+
         setDate("");
         setName("");
         setBranch("");
